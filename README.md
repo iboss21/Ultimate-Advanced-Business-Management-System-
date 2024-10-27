@@ -1,201 +1,240 @@
 # iBoss Business Management System
 ![version](https://img.shields.io/badge/version-3.0.0-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
 ![excel](https://img.shields.io/badge/excel-2019%2B-brightgreen)
+![license](https://img.shields.io/badge/license-MIT-green)
+![build](https://img.shields.io/badge/build-passing-success)
 
-## Developer Information 👨‍💻
+Advanced Excel-based business management system with AI integration, real-time analytics, and comprehensive business automation.
+
+## 🚀 Quick Links
+- [Installation Guide](#installation-guide)
+- [User Guide](#user-guide)
+- [Configuration Examples](#configuration-examples)
+- [Developer Information](#developer-information)
+- [Support](#support)
+
+## 📋 Features
+- Real-time Business Analytics
+- Financial Management
+- Inventory Control
+- HR Management
+- Client Database
+- Automated Reporting
+- Performance Tracking
+- AI-Powered Insights
+- Quality Control System
+
+## 💻 Installation Guide
+
+### System Requirements
+```
+- Microsoft Excel 2019 or Office 365
+- Windows 10/11 or macOS
+- 8GB RAM (16GB recommended)
+- 20GB free disk space
+```
+
+### Setup Steps
+1. Download `iBoss_Master.xlsm`
+2. Enable Excel Settings:
+   ```
+   File > Options > Trust Center > Trust Center Settings:
+   ✓ Enable all macros
+   ✓ Trust access to the VBA project object model
+   ✓ Enable all ActiveX controls
+   ```
+3. Open system file
+4. Run initial setup wizard
+
+## 📖 User Guide
+
+### Initial Configuration
+```excel
+1. Go to 'Settings' sheet
+2. Enter business information:
+   - Company Name
+   - Business Type
+   - Currency
+   - Fiscal Year
+   - Tax Rates
+3. Save configuration
+```
+
+### Daily Operations
+```
+1. Morning Setup
+   └── Check Dashboard
+   └── Review Alerts
+   └── Verify Tasks
+
+2. Data Entry
+   └── New Transactions
+   └── Update Inventory
+   └── Client Records
+
+3. End of Day
+   └── Generate Reports
+   └── Backup Data
+   └── Schedule Tasks
+```
+
+### Example: Adding New Client
+```excel
+# Navigate to 'Clients' sheet
+1. Click 'New Client' or press Alt+N
+2. Fill required fields:
+   - Client ID: [Auto-generated]
+   - Name: [Client Name]
+   - Contact: [Primary Contact]
+   - Email: [Contact Email]
+   - Type: [Select from dropdown]
+3. Save (Ctrl+S)
+```
+
+### Example: Financial Entry
+```excel
+# In 'Finance' sheet
+Transaction Entry:
+Date | Type | Amount | Category | Status
+=TODAY() | [Dropdown] | [Value] | [Dropdown] | [Dropdown]
+
+# Automated Calculations
+Profit = SUM(Income) - SUM(Expenses)
+Margin = Profit / SUM(Income) * 100
+```
+
+## ⚙️ Configuration Examples
+
+### Custom Dashboard
+```excel
+# Dashboard Configuration
+[Settings]
+RefreshRate=300 'seconds
+AutoUpdate=True
+AlertThreshold=0.85
+
+[Metrics]
+DailyRevenue=SUM(Sales[Amount])
+Profit=Revenue-Expenses
+Growth=([Current]-[Previous])/[Previous]
+```
+
+### Report Templates
+```vba
+'Custom Report Configuration
+Public Sub ConfigureReport()
+    With Reports
+        .Type = "Financial"
+        .Period = "Monthly"
+        .Metrics = Array("Revenue", "Profit", "Growth")
+        .Charts = True
+        .AutoSend = True
+    End With
+End Sub
+```
+
+## 👨‍💻 Developer Information
 
 ### Lead Developer
-**David (davidio.dev)**
-- Full Stack Developer
-- Business Systems Architect
-- Excel & VBA Expert
-- AI Integration Specialist
+**iBoss (davidio.dev)**
+- Full Stack Developer & Business Systems Architect
 
 ### Contact & Social
-- 🌐 Website: [davidio.dev](https://davidio.dev)
+- 🌐 Websites: [davidio.dev](https://davidio.dev) | [fandev.icu](https://fandev.icu)
 - 📧 Email: contact@davidio.dev
-- 💼 LinkedIn: [/in/davidiodev](https://linkedin.com/in/davidiodev)
-- 🐱 GitHub: [@davidiodev](https://github.com/davidiodev)
+- 💼 LinkedIn: [/in/bossonline](https://linkedin.com/in/bossonline)
+- 🐱 GitHub: [@iboss21](https://github.com/iboss21)
 
-## Project Overview 🚀
+### Company
+**LIKE A KING INC**
+- 🌐 Website: [likeaking.pro](https://likeaking.pro)
+- Enterprise Business Solutions Provider
 
-iBoss is an advanced Excel-based business management system featuring AI integration, real-time analytics, and comprehensive business automation. Built with a focus on scalability, performance, and user experience.
-
-### Core Technologies
+### Development Stack
 ```
-- Microsoft Excel 2019+
-- VBA
-- Python Integration
+Core:
+- Excel VBA
 - Power Query
-- Power Pivot
+- DAX
 - Custom XML
+
+Integrations:
+- Python for AI/ML
+- REST APIs
+- Power BI
+- Custom Connectors
 ```
 
-### Development Philosophy
-- Clean, maintainable code
-- User-centric design
-- Performance optimization
-- Scalable architecture
-- Continuous improvement
+### Contributing
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create Pull Request
 
-## Contribution Guidelines 🤝
+## 🛠️ Customization
 
-### Code Standards
-```
-- Clear documentation
-- Consistent naming conventions
-- Performance-focused implementation
-- Security-first approach
-- Thorough testing
-```
-
-### Submitting Changes
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
-
-## Development Setup 💻
-
-### Requirements
-```
-- Microsoft Excel 2019 or later
-- Git
-- Python 3.8+ (for AI features)
-- Power BI Desktop (optional)
+### Adding Custom Modules
+```vba
+'Module Template
+Public Sub CreateCustomModule()
+    With NewModule
+        .Name = "CustomModule"
+        .Type = "Processing"
+        .Initialize
+        .ConnectData
+    End With
+End Sub
 ```
 
-### Local Development
-```bash
-# Clone repository
-git clone https://github.com/davidiodev/iBoss.git
+### Custom Formulas
+```excel
+# Performance Metrics
+=IFERROR(SUMIFS(Data[Value],Data[Date],">="&StartDate)/COUNT(Data[ID]),"")
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure development environment
-cp .env.example .env
+# Dynamic Ranges
+=OFFSET(Sheet1!$A$1,0,0,COUNTA(Sheet1!$A:$A),5)
 ```
 
-## Architecture 🏗️
+## 🔧 Troubleshooting
 
-### System Structure
+### Common Issues
 ```
-iBoss/
-├── src/
-│   ├── modules/
-│   ├── classes/
-│   ├── functions/
-│   └── utilities/
-├── docs/
-├── tests/
-└── examples/
-```
+1. Calculation Errors
+   └── Solution: Press F9 or enable auto-calculate
 
-### Module Organization
-```
-- Core Business Logic
-- Data Management
-- User Interface
-- Integration Layer
-- Security Module
+2. Performance Issues
+   └── Run 'System Cleanup' (Alt+C)
+   └── Clear unused ranges
+   └── Update Excel
+
+3. Data Validation
+   └── Check input formats
+   └── Verify formulas
+   └── Run data validation tool
 ```
 
-## Testing 🧪
+## 📚 Support
 
-### Test Frameworks
-```
-- Unit Testing
-- Integration Testing
-- Performance Testing
-- User Acceptance Testing
-```
+### Resources
+- Documentation: `/docs`
+- Tutorials: Built-in Help (F1)
+- Updates: Automatic Check
 
-### Quality Assurance
-- Automated testing
-- Code review process
-- Performance benchmarking
-- Security auditing
+### Contact Support
+- Technical Issues: support@likeaking.pro
+- General Inquiries: contact@davidio.dev
+- Feature Requests: GitHub Issues
 
-## Deployment 🚀
+## 📄 License
+MIT License
+Copyright (c) 2024 LIKE A KING INC
 
-### Release Process
-1. Version testing
-2. Documentation update
-3. Change log generation
-4. Release packaging
-5. Distribution
-
-### Version Control
-- Semantic versioning
-- Release notes
-- Change documentation
-- Migration guides
-
-## Support & Maintenance 🛠️
-
-### Support Channels
-- GitHub Issues
-- Email Support
-- Documentation
-- Community Forums
-
-### Maintenance Schedule
-```
-- Weekly updates
-- Monthly feature releases
-- Quarterly major updates
-- Annual architecture review
-```
-
-## License & Attribution 📜
-
-### MIT License
-```
-Copyright (c) 2024 davidio.dev
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software...
-```
-
-### Acknowledgments
+## Acknowledgments
 - Excel Development Community
-- Open Source Contributors
-- Beta Testers
-- User Community
-
-## Future Development 🔮
-
-### Roadmap
-```
-Q2 2024:
-- Enhanced AI integration
-- Mobile compatibility
-- Cloud synchronization
-
-Q3 2024:
-- Advanced analytics
-- API expansion
-- Custom plugins
-
-Q4 2024:
-- Blockchain integration
-- IoT connectivity
-- Advanced automation
-```
-
-### Research Areas
-- AI/ML Implementation
-- Performance Optimization
-- User Experience Enhancement
-- Security Improvements
+- Our valuable users
+- Contributors & Testers
 
 ---
-
-For more information, visit [davidio.dev](https://davidio.dev) or contact the development team at contact@davidio.dev.
-
-Made with 💻 by David @ davidio.dev
-
----
+Made with 💻 by iBoss @ davidio.dev | fandev.icu
+LIKE A KING INC © 2024
